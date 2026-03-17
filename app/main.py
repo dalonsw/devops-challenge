@@ -1,7 +1,8 @@
-import os
-import uvicorn
+"""API principal da aplicação (FastAPI)."""
+
 from fastapi import FastAPI, status
 from fastapi.responses import JSONResponse
+import uvicorn
 
 from app.config import APP_ENV, HOST, PORT, VERSION
 
@@ -10,11 +11,8 @@ app = FastAPI()
 
 @app.get("/health")
 def health():
-    data = {
-        "status": "ok",
-        "version": VERSION,
-        "environment": APP_ENV
-    }
+    """Endpoint de saúde para verificar se o serviço está funcionando."""
+    data = {"status": "ok", "version": VERSION,"environment": APP_ENV}
     return JSONResponse(content=data, status_code=status.HTTP_200_OK)
 
 if __name__ == "__main__":
