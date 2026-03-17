@@ -18,4 +18,3 @@ def health():
 if __name__ == "__main__":
     print(f"Starting server in {APP_ENV} environment on {HOST}:{PORT}")
     uvicorn.run(app, host=HOST, port=PORT)
-    
