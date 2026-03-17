@@ -9,6 +9,8 @@ Como última parte do desafio, é necessário criar um arquivo explicando as med
 - **Kubernetes com probes de saúde**: no `infra/k8s/deployment.yaml` existem `readinessProbe` e `livenessProbe` no endpoint `/health` (implementado em `app.main.health`), ajudando o cluster a remover pods não saudáveis automaticamente (resiliência operacional).
 - **Pipeline com varredura de vulnerabilidades**: o workflow `.github/workflows/devops-challenge.yaml` faz scan da imagem Docker com Trivy e falha o build se achar vulnerabilidades `HIGH`/`CRITICAL` (gate de segurança).
 - **Uso de secrets no CI**: no workflow `.github/workflows/devops-challenge.yaml`, o login no DockerHub usa `secrets.DOCKER_USERNAME` e `secrets.DOCKER_PASSWORD` (não ficam hardcoded no repositório).
+- **Security Group restritivo**: no `infra/terraform/main.tf`, o `aws_security_group` é configurado para permitir acesso apenas de fontes específicas (SSH, HTTP e 8080), no caso de uma implantação real, seria recomendado restringir ainda mais (ex: IPs específicos).
+- **Tags de recursos**: no `infra/terraform/variables.tf`, as tags definidas ajudam na identificação e gerenciamento dos recursos, além de facilitar auditorias e controle de custos.
 
 ## Perguntas adicionais:
 1. **Como gerenciar segredos em produção:** Em produção é recomendado usar um gerenciador de segredos como HashiCorp Vault, AWS Secrets Manager ou Azure Key Vault. Além de implementar no GitHub Actions (caso utilize) as variáveis de ambiente como secrets do repositório, evitando expor credenciais sensíveis.
