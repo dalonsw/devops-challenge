@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-      - feat/cicd-pipeline
+      # - feat/cicd-pipeline
 
 jobs:
   lint-code:
