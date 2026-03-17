@@ -25,8 +25,7 @@ jobs:
           pip install pylint
 
       - name: Lint Python code
-        run: |
-          pylint /app/main.py
+        run: pylint /app/*.py
 
   build:
     runs-on: ubuntu-latest
