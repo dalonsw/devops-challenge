@@ -10,3 +10,8 @@ Para o Dockerfile pensei em usar uma imagem alpine, mas acabei optando por uma i
 Pensei também em fazer multi-stage builds para otimizar a imagem, mas como o app é simples e não tem muitas dependências, optei por uma imagem única mesmo.
 
 Ali na questão do GitHub Actions, fui fazendo testes com o lint e moldando o código para passar nas verificações. Usei o pylint.
+
+No terraform fiz uma configuração básica para criar uma máquina EC2 e um security group, para garantir que tivesse mais segurança a máquina.
+
+Tentei fazer o repositório o mais organizado possível, com uma estrutura clara de pastas e arquivos e com um gitflow simples, usando branches para organizar as features e fixes.
+
