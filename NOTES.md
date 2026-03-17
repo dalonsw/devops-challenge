@@ -8,3 +8,5 @@ Coloquei apenas um arquivo ali de configuração para o ambiente, o config.py, p
 Para o Dockerfile pensei em usar uma imagem alpine, mas acabei optando por uma imagem mais completa, a python:3.14-slim, para evitar problemas de dependências. Além de usar uma versão mais atualizada ali para garantir que o app rodasse sem problemas.
 
 Pensei também em fazer multi-stage builds para otimizar a imagem, mas como o app é simples e não tem muitas dependências, optei por uma imagem única mesmo.
+
+Ali na questão do GitHub Actions, fui fazendo testes com o lint e moldando o código para passar nas verificações. Usei o pylint.
