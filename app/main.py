@@ -3,17 +3,16 @@ import uvicorn
 from fastapi import FastAPI, status
 from fastapi.responses import JSONResponse
 
+from app.config import APP_ENV, HOST, PORT, VERSION
+
 app = FastAPI()
 
-APP_ENV = os.getenv("APP_ENV", "DEV")
-PORT = int(os.getenv("PORT", 8080))
-HOST = os.getenv("HOST", "127.0.0.1")
 
 @app.get("/health")
 def health():
     data = {
         "status": "ok",
-        "version": "1.0.0",
+        "version": VERSION,
         "environment": APP_ENV
     }
     return JSONResponse(content=data, status_code=status.HTTP_200_OK)
